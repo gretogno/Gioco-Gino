@@ -1,4 +1,3 @@
-// --- COSTANTI E VARIABILI DI STATO ---
 const TERRA = "0xB96E54";
 const VERDE = "0x72A110";
 const ROSSO = "0xE44A4A";
@@ -38,15 +37,12 @@ let partita_finita = false;
 let testo_fine;
 let testo_rigioca;
 
-// Variabili per gli asset grafici
 let img_sfondo;
 let img_terreno;
 let img_gino;
 let img_fungo;
 let img_fuoco;
 
-
-// --- PRELOAD (Caricamento immagini) ---
 function preload(s) {
     img_sfondo = PP.assets.image.load(s, "assets/images/sfondo.png");
     img_terreno = PP.assets.image.load(s, "assets/images/terreno.png");
@@ -55,8 +51,6 @@ function preload(s) {
     img_fuoco = PP.assets.image.load(s, "assets/images/fuoco.png");
 }
 
-
-// --- CREATE (Creazione oggetti) ---
 function create(s) {
     // Sfondo del gioco
     PP.assets.image.add(s, img_sfondo, 0, 0, 0, 0);
@@ -110,8 +104,6 @@ function crea_fine(s) {
     testo_rigioca.visibility.hidden = true;
 }
 
-
-// --- LOGICA DI GIOCO E MOVIMENTO ---
 function salta(s) {
     if (PP.interactive.kb.is_key_just_down(s, TASTO_SALTO) && PP.physics.is_on_ground(gino)) {
         PP.physics.set_velocity_y(gino, -VEL_SALTO);
@@ -183,7 +175,6 @@ function ricomincia(s) {
 }
 
 
-// --- GAME LOOP (Update) ---
 function update(s) {
     if (partita_finita) {
         ricomincia(s);
