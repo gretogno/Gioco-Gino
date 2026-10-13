@@ -87,8 +87,6 @@ function crea_fungo(s) {
     PP.physics.add(s, fungo, PP.physics.type.DYNAMIC);
     PP.physics.set_allow_gravity(fungo, false);
     PP.physics.set_velocity_x(fungo, -vel_fungo);
-
-    // Gestisce il contatto tra Gino e il fungo (Game Over)
     PP.physics.add_overlap_f(s, gino, fungo, fine_partita);
 }
 
